@@ -2,10 +2,12 @@
 This is the damn experiment work for Software Project Management course in BUPT SSE.
 
 ## How To Join The Development
-1. Fork it! And clone it!
-2. Add application.properties in the resources folder.
-3. Change the dependency in pom.xml if you want to use MySQL Connector J or other database connector.
-4. Modify the import.xml in resources folder if you want to make some change to the data in database.
+1. Fork it! And clone it if you are not a member of us!
+2. Import as a maven project in eclipse of other IDE as you like.
+3. Add application.properties in the resources folder.
+4. Change the dependency in pom.xml if you want to use MySQL Connector J or other database connector.
+5. Modify the import.xml in resources folder if you want to make some change to the data in database.
+6. Simply run it to see what will happen.
 
 ## What We've Down
 * The model and the database.
