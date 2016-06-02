@@ -9,7 +9,7 @@ This is the damn experiment work for Software Project Management course in BUPT 
 5. Modify the import.xml in resources folder if you want to make some change to the data in database.
 6. Simply run it to see what will happen.
 
-## What We've Down
+## What We've Done
 * The model and the database.
 * Some service for the administartor.
 
