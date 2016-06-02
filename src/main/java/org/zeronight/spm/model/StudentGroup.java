@@ -37,7 +37,7 @@ public class StudentGroup implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Column(unique=true)
+	@Column(unique=true,length=20)
 	public String getName() {
 		return name;
 	}

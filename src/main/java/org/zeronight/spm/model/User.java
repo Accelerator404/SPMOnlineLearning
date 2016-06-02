@@ -46,7 +46,7 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	@Column(unique=true)
+	@Column(unique=true,nullable=false,length=20)
 	public String getUsername() {
 		return username;
 	}
@@ -63,7 +63,7 @@ public class User implements Serializable {
 		this.passwordHash = passwordHash;
 	}
 
-	@Column(unique=true)
+	@Column(unique=true,nullable=false,length=50)
 	public String getEmail() {
 		return email;
 	}
@@ -72,7 +72,7 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	@Column(unique=true)
+	@Column(unique=true,nullable=false,length=20)
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -81,6 +81,7 @@ public class User implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
+	@Column(columnDefinition="TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP")
 	public Timestamp getCreateTime() {
 		return createTime;
 	}
@@ -89,6 +90,7 @@ public class User implements Serializable {
 		this.createTime = createTime;
 	}
 
+	@Column(columnDefinition="TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP")
 	public Timestamp getLastLogin() {
 		return lastLogin;
 	}
@@ -97,6 +99,7 @@ public class User implements Serializable {
 		this.lastLogin = lastLogin;
 	}
 
+	@Column(length=20,nullable=false)
 	public String getName() {
 		return name;
 	}

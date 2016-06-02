@@ -42,7 +42,7 @@ public class Server implements Serializable{
 	public void setLink(String link) {
 		this.link = link;
 	}
-	@Column(unique=true)
+	@Column(unique=true,length=20)
 	public String getName() {
 		return name;
 	}
