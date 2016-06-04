@@ -17,7 +17,7 @@ public class AdminService implements IAdminService {
 
 	@Override
 	public List<User> getAllUsers() {
-		return userDao.find("from user");
+		return userDao.find("from User");
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class AdminService implements IAdminService {
 	public User getUserByUsername(String username) {
 		List<Object> param=new ArrayList<Object>();
 		param.add(username);
-		return userDao.get("from user where username=?", param);
+		return userDao.get("from User where username=?", param);
 	}
 
 }

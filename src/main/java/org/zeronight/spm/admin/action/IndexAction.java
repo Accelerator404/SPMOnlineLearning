@@ -2,8 +2,6 @@ package org.zeronight.spm.admin.action;
 
 import java.util.List;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +19,7 @@ public class IndexAction extends ActionSupport {
 	@Autowired
 	private IAdminService adminService;
 	private List<User> users;
-	private User currentUser;
+	private String currentUser;
 
 	public List<User> getUsers() {
 		return users;
@@ -31,26 +29,23 @@ public class IndexAction extends ActionSupport {
 		this.users = users;
 	}
 
-	public User getCurrentUser() {
-		return currentUser;
-	}
-
-	public void setCurrentUser(User currentUser) {
-		this.currentUser = currentUser;
-	}
-
-	@Action("index")
 	@Override
 	public String execute() throws Exception {
 		users = adminService.getAllUsers();
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username;
 		if (principal instanceof UserDetails) {
-			username = ((UserDetails) principal).getUsername();
+			currentUser = ((UserDetails) principal).getUsername();
 		} else {
-			username = principal.toString();
+			currentUser = principal.toString();
 		}
-		currentUser = adminService.getUserByUsername(username);
 		return SUCCESS;
+	}
+
+	public String getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(String currentUser) {
+		this.currentUser = currentUser;
 	}
 }

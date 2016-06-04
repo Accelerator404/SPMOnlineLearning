@@ -11,11 +11,14 @@ This is the damn experiment work for Software Project Management course in BUPT 
 
 ## What We've Done
 * The model and the database.
-* Some service for the administartor.
+* Some services and actions for the administartor.
+* The front-end framework.
+* Authentication, also can be called the login and logout part.
 
 ## TO-DO
-* Struts2 Convetion Plugin seems to be not work with Spring Boot, so struts.xml configuration file is needed.
-* All the functions for the three roles in the system.
+* The CRUD actions on the users for the role Administartor.
+* Functions for the role student and teacher.
+* To see the current login user's username on the navbar-right.
 
 ## License
 The MIT License (MIT)  
