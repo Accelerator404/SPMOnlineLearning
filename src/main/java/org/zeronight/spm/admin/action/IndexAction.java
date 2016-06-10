@@ -19,7 +19,6 @@ public class IndexAction extends ActionSupport {
 	@Autowired
 	private IAdminService adminService;
 	private List<User> users;
-	private String currentUser;
 
 	public List<User> getUsers() {
 		return users;
@@ -32,20 +31,6 @@ public class IndexAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		users = adminService.getAllUsers();
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		if (principal instanceof UserDetails) {
-			currentUser = ((UserDetails) principal).getUsername();
-		} else {
-			currentUser = principal.toString();
-		}
 		return SUCCESS;
-	}
-
-	public String getCurrentUser() {
-		return currentUser;
-	}
-
-	public void setCurrentUser(String currentUser) {
-		this.currentUser = currentUser;
 	}
 }

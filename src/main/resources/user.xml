@@ -8,5 +8,14 @@
 		<action name="logout">
 			<result type="freemarker">/user/logout.ftl</result>
 		</action>
+
+	</package>
+	
+	<package name="userApi" extends="json-default" namespace="/api/user">
+		<action name="username" class="org.zeronight.spm.user.action.CurrentUsernameAction">
+			<result type="json" name="success">
+				<param name="encoding">UTF-8</param>
+			</result>
+		</action>
 	</package>
 </struts>

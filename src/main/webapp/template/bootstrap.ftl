@@ -6,6 +6,9 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
+  	<meta name="_csrf" content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
 
   <title>${title}</title>
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +25,7 @@
 </head>
 </#macro>
 
-<#macro body user="">
+<#macro body>
 <body style="margin-bottom:60px">
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -40,18 +43,17 @@
             <li><a href="../index">首页</a></li>
             <li><a href="#about">关于</a></li>
           </ul>
-          <#if (user?has_content)>
-          <form class="navbar-form navbar-right" method="POST" action="../user/logout">
+          <form id="first" class="navbar-form navbar-right" method="POST" action="../user/logout" style="display:none;">
           	<div class="form-group">
-  				<a href="../user" style="color:Ivory;padding:10px 15px">${user}</a>
+  				<a href="../user" style="color:Ivory;padding-left:7px;padding-right:15px;padding-bottom:10px;padding-top:10px"></a>
             </div>
             <input type="hidden"
 				name="${_csrf.parameterName}"
 				value="${_csrf.token}"/>
           	<button type="submit" class="btn btn-success">登出</button>
           </form>
-          <#else>
-          <form class="navbar-form navbar-right" action="../login" method="POST">
+          
+          <form id="second" class="navbar-form navbar-right" action="../login" method="POST" style="display:none;">
             <div class="form-group">
               <input name="username" type="text" placeholder="Username" class="form-control">
             </div>
@@ -63,7 +65,6 @@
 				value="${_csrf.token}"/>
             <button type="submit" class="btn btn-success" value="Login">Sign in</button>
           </form>
-          </#if>
         </div>
       </div>
     </nav>
@@ -75,6 +76,42 @@
     </footer>
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$.ajax({
+            	type: 'GET',
+            	url: '../api/user/username'
+        	}).done(function(data) {
+        		if(data.length==null){
+            		$("#first div a").html(data.currentUsername);
+            		$("#first").show();
+            	}
+            	else $("#second").show();
+        	}).fail(function(data){
+        		$("#second").show();
+        	});
+		});
+    </script>
   </body>
+</#macro>
+
+<#macro modal title>
+<div class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">${title}</h4>
+      </div>
+      <div class="modal-body">
+        <#nested>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </#macro>
 
