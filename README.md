@@ -11,14 +11,15 @@ This is the damn experiment work for Software Project Management course in BUPT 
 
 ## What We've Done
 * The model and the database.
-* Some services and actions for the administartor.
+* Management of the accounts in the system for the admin.
 * The front-end framework.
-* Authentication, also can be called the login and logout part.
+* Authentication.
+* Management of the student's groups for the teacher.
 
 ## TO-DO
-* The CRUD actions on the users for the role Administartor.
-* Functions for the role student and teacher.
-* To see the current login user's username on the navbar-right.
+* Student.
+* Upload and deploy the student's work.
+* Mark points function.
 
 ## License
 The MIT License (MIT)  

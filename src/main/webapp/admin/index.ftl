@@ -43,7 +43,7 @@
 		if($(".modal").length!=0)$(".modal").remove();
 		$.ajax({
 			type: 'GET',
-			url: '../admin/user?Id='+id
+			url: '../admin/user?id='+id
 		}).done(function(data){
 			$("body").append(data);
 			$(".modal").modal();

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="teacher" extends="struts-default" namespace="/teacher">
+		<action name="index" class="org.zeronight.spm.teacher.action.IndexAction">
+			<result type="freemarker" name="success">/teacher/index.ftl</result>
+		</action>
+		
+		<action name="list-group" class="org.zeronight.spm.teacher.action.ListGroupAction">
+		    <result type="freemarker" name="success">/teacher/list-group.ftl</result>
+		</action>
+		
+		<action name="add-group" class="org.zeronight.spm.teacher.action.AddGroupAction">
+		    <result type="redirectAction" name="success">
+		        <param name="actionName">list-group</param>
+		        <param name="namespace">/teacher</param>
+		    </result>
+		    <result type="redirectAction" name="input">
+		        <param name="actionName">list-group</param>
+		        <param name="namespace">/teacher</param>
+		        <param name="errorMessage">组名已存在或者组名不符合规格！</param>
+		    </result>
+		</action>
+		
+		<action name="add-group-input">
+		    <result type="freemarker">/teacher/add-group.ftl</result>
+		</action>
+		
+		<action name="group" class="org.zeronight.spm.teacher.action.GroupAction">
+		    <result type="freemarker">/teacher/group.ftl</result>
+		</action>
+		
+		<action name="group-add-student" class="org.zeronight.spm.teacher.action.GroupAddStudentAction">
+		    <result type="redirectAction" name="success">
+		        <param name="actionName">group</param>
+		        <param name="namespace">/teacher</param>
+		        <param name="id">${groupId}</param>
+		    </result>
+		    <result type="freemarker" name="input">
+		        /teacher/group-add-student.ftl
+		    </result>
+		</action>
+		
+		<action name="group-delete-student" class="org.zeronight.spm.teacher.action.GroupDeleteStudentAction">
+		    <result type="redirectAction" name="success">
+		        <param name="actionName">group</param>
+		        <param name="namespace">/teacher</param>
+		        <param name="id">${groupId}</param>
+		    </result>
+		</action>
+		
+		<action name="list-student" class="org.zeronight.spm.teacher.action.ListStudentAction">
+		    <result type="freemarker" name="success">/teacher/list-student.ftl</result>
+		</action>
+		
+		<action name="student-change-group" class="org.zeronight.spm.teacher.action.StudentChangeGroupAction">
+		    <result type="redirectAction" name="success">
+		        <param name="actionName">list-student</param>
+		        <param name="namespace">/teacher</param>
+		    </result>
+		    <result type="freemarker" name="input">
+		        /teacher/student-change-group.ftl
+		    </result>
+		</action>
+	</package>
+</struts>

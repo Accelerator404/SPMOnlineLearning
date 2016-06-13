@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
+import org.springframework.orm.hibernate5.support.OpenSessionInViewFilter;
 import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.multipart.support.MultipartFilter;
@@ -27,6 +28,11 @@ public class App {
 	public Filter strutsFilter() {
 		return new org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter();
 	}
+	
+	@Bean(name = "openSessionInViewFilter")
+	public OpenSessionInViewFilter openSessionInViewFilter(){
+		return new OpenSessionInViewFilter();
+	}
 
 	@Bean
 	public FilterRegistrationBean strutsFilterRegistration() {
@@ -45,6 +51,14 @@ public class App {
 		registration.addUrlPatterns("/*");
 		registration.setName("multipartFilter");
 		registration.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		return registration;
+	}
+	
+	@Bean FilterRegistrationBean openSessionInViewFilterRegistration(){
+		FilterRegistrationBean registration = new FilterRegistrationBean();
+		registration.setFilter(openSessionInViewFilter());
+		registration.addUrlPatterns("/*");
+		registration.setName("openSessionInViewFilter");
 		return registration;
 	}
 

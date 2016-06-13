@@ -16,3 +16,14 @@ INSERT INTO User (email,name,password_hash,phone_number,username,role_id) VALUES
 INSERT INTO User (email,name,password_hash,phone_number,username,role_id) VALUES ("student10@example.com","学生癸","student10","11","student10","2");
 
 INSERT INTO User (email,name,password_hash,phone_number,username,role_id) VALUES ("teacher1@example.com","老师甲","teacher1","12","teacher1","3");
+
+INSERT INTO Student (user_id) VALUES ("2")
+INSERT INTO Student (user_id) VALUES ("3")
+INSERT INTO Student (user_id) VALUES ("4")
+INSERT INTO Student (user_id) VALUES ("5")
+INSERT INTO Student (user_id) VALUES ("6")
+INSERT INTO Student (user_id) VALUES ("7")
+INSERT INTO Student (user_id) VALUES ("8")
+INSERT INTO Student (user_id) VALUES ("9")
+INSERT INTO Student (user_id) VALUES ("10")
+INSERT INTO Student (user_id) VALUES ("11")

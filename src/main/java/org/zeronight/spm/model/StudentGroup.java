@@ -14,59 +14,78 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="StudentGroup")
-public class StudentGroup implements Serializable{
+@Table(name = "StudentGroup")
+public class StudentGroup implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String name;
-	private int point;
-	private int spm;
+	private Integer point;
+	private Integer spm=30;
 	private Set<Student> students;
 	private Work work;
-	public StudentGroup(){
-		
+
+	public StudentGroup() {
+
 	}
+	
+	public StudentGroup(String name){
+		this.name=name;
+	}
+
 	@Id
-    @GeneratedValue
-	public int getId() {
+	@GeneratedValue
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	@Column(unique=true,length=20)
+
+	@Column(unique = true, length = 20, nullable=false)
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPoint() {
+
+	@Column(nullable=true)
+	public Integer getPoint() {
 		return point;
 	}
-	public void setPoint(int point) {
+
+	public void setPoint(Integer point) {
 		this.point = point;
 	}
-	public int getSpm() {
+
+	@Column(columnDefinition="INTEGER NOT NULL DEFAULT 30")
+	public Integer getSpm() {
 		return spm;
 	}
-	public void setSpm(int spm) {
+
+	public void setSpm(Integer spm) {
 		this.spm = spm;
 	}
+
 	@OneToMany(mappedBy = "studentGroup", cascade = CascadeType.ALL, orphanRemoval = true)
 	public Set<Student> getStudents() {
 		return students;
 	}
+
 	public void setStudents(Set<Student> students) {
 		this.students = students;
 	}
+
 	@OneToOne(mappedBy = "studentGroup", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	public Work getWork() {
 		return work;
 	}
+
 	public void setWork(Work work) {
 		this.work = work;
 	}

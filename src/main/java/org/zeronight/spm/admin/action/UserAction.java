@@ -17,16 +17,16 @@ public class UserAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	@Autowired
 	private IAdminService adminService;
-	private int Id;
+	private int id;
 	private User user;
 	private List<Role> roles;
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public User getUser() {
@@ -47,7 +47,7 @@ public class UserAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-		user=adminService.getUserById(Id);
+		user=adminService.getUserById(id);
 		roles=adminService.getAllRoles();
 		return SUCCESS;
 	}

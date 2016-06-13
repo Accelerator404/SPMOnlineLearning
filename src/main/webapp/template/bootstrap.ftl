@@ -13,6 +13,10 @@
   <title>${title}</title>
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+
+
 
   
   <#nested>
@@ -45,7 +49,7 @@
           </ul>
           <form id="first" class="navbar-form navbar-right" method="POST" action="../user/logout" style="display:none;">
           	<div class="form-group">
-  				<a href="../user" style="color:Ivory;padding-left:7px;padding-right:15px;padding-bottom:10px;padding-top:10px"></a>
+  				<a href="../user" style="color:Ivory;padding-right:15px;padding-bottom:10px;padding-top:10px"></a>
             </div>
             <input type="hidden"
 				name="${_csrf.parameterName}"
@@ -75,6 +79,8 @@
       </div>
     </footer>
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     	$(document).ready(function(){

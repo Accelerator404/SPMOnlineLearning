@@ -15,7 +15,7 @@ public class Server implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private boolean available;
 	private String link;
 	private String name;
@@ -24,10 +24,10 @@ public class Server implements Serializable{
 	}
 	@Id
     @GeneratedValue
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public boolean isAvailable() {

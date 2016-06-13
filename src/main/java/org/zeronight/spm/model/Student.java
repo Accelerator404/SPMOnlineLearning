@@ -2,6 +2,7 @@ package org.zeronight.spm.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,10 +19,10 @@ public class Student implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
-	private int point;
+	private Integer id;
+	private Integer point;
 	private String mission;
-	private int workTime;
+	private Integer workTime;
 	private User user;
 	private StudentGroup studentGroup;
 
@@ -31,19 +32,20 @@ public class Student implements Serializable {
 
 	@Id
     @GeneratedValue
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getPoint() {
+	@Column(nullable=true)
+	public Integer getPoint() {
 		return point;
 	}
 
-	public void setPoint(int point) {
+	public void setPoint(Integer point) {
 		this.point = point;
 	}
 
@@ -55,11 +57,12 @@ public class Student implements Serializable {
 		this.mission = mission;
 	}
 
-	public int getWorkTime() {
+	@Column(nullable=true)
+	public Integer getWorkTime() {
 		return workTime;
 	}
 
-	public void setWorkTime(int workTime) {
+	public void setWorkTime(Integer workTime) {
 		this.workTime = workTime;
 	}
 
