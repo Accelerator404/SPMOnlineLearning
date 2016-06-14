@@ -17,8 +17,6 @@ This is the damn experiment work for Software Project Management course in BUPT 
 * Management of the student's groups for the teacher.
 
 ## TO-DO
-* Student.
-* Upload and deploy the student's work.
 * Mark points function.
 
 ## License
