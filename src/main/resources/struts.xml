@@ -11,6 +11,7 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.multipart.parser" value="spring" />
+	<constant name="struts.convention.result.path" value="/public" />
 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
 		name="spring" class="org.zeronight.spm.SpringMultipartParser" scope="default" />
 
