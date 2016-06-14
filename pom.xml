@@ -6,7 +6,7 @@
 	<groupId>org.zeronight</groupId>
 	<artifactId>spm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>spm</name>
 	<url>http://maven.apache.org</url>
@@ -48,6 +48,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
