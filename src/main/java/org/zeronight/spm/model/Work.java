@@ -21,20 +21,21 @@ public class Work implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Integer id;
 	private String project;
+	private String sourceCode;
 	private String requirement;
 	private String generalDesign;
 	private String detailedDesign;
-	private int deployPoint;
-	private int indexPoint;
-	private int linkPoint;
-	private int functionPoint;
-	private int performancePoint;
-	private int stylePoint;
-	private int codePoint;
-	private int autoDocPoint;
-	private int manualDocPoint;
+	private Integer deployPoint;
+	private Integer indexPoint;
+	private Integer linkPoint;
+	private Integer functionPoint;
+	private Integer performancePoint;
+	private Integer stylePoint;
+	private Integer codePoint;
+	private Integer autoDocPoint;
+	private Integer manualDocPoint;
 	private StudentGroup studentGroup;
 	private Set<TestCase> testCases;
 
@@ -44,11 +45,11 @@ public class Work implements Serializable {
 
 	@Id
 	@GeneratedValue
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -85,83 +86,83 @@ public class Work implements Serializable {
 	}
 
 	@Column(nullable=true)
-	public int getDeployPoint() {
+	public Integer getDeployPoint() {
 		return deployPoint;
 	}
 
-	public void setDeployPoint(int deployPoint) {
+	public void setDeployPoint(Integer deployPoint) {
 		this.deployPoint = deployPoint;
 	}
 
 	@Column(nullable=true)
-	public int getIndexPoint() {
+	public Integer getIndexPoint() {
 		return indexPoint;
 	}
 
-	public void setIndexPoint(int indexPoint) {
+	public void setIndexPoint(Integer indexPoint) {
 		this.indexPoint = indexPoint;
 	}
 
 	@Column(nullable=true)
-	public int getLinkPoint() {
+	public Integer getLinkPoint() {
 		return linkPoint;
 	}
 
-	public void setLinkPoint(int linkPoint) {
+	public void setLinkPoint(Integer linkPoint) {
 		this.linkPoint = linkPoint;
 	}
 
 	@Column(nullable=true)
-	public int getFunctionPoint() {
+	public Integer getFunctionPoint() {
 		return functionPoint;
 	}
 
-	public void setFunctionPoint(int functionPoint) {
+	public void setFunctionPoint(Integer functionPoint) {
 		this.functionPoint = functionPoint;
 	}
 
 	@Column(nullable=true)
-	public int getPerformancePoint() {
+	public Integer getPerformancePoint() {
 		return performancePoint;
 	}
 
-	public void setPerformancePoint(int performancePoint) {
+	public void setPerformancePoint(Integer performancePoint) {
 		this.performancePoint = performancePoint;
 	}
 
 	@Column(nullable=true)
-	public int getStylePoint() {
+	public Integer getStylePoint() {
 		return stylePoint;
 	}
 
-	public void setStylePoint(int stylePoint) {
+	public void setStylePoint(Integer stylePoint) {
 		this.stylePoint = stylePoint;
 	}
 
 	@Column(nullable=true)
-	public int getCodePoint() {
+	public Integer getCodePoint() {
 		return codePoint;
 	}
 
-	public void setCodePoint(int codePoint) {
+	public void setCodePoint(Integer codePoint) {
 		this.codePoint = codePoint;
 	}
 
 	@Column(nullable=true)
-	public int getAutoDocPoint() {
+	public Integer getAutoDocPoint() {
 		return autoDocPoint;
 	}
 
-	public void setAutoDocPoint(int autoDocPoint) {
+	public void setAutoDocPoint(Integer autoDocPoint) {
 		this.autoDocPoint = autoDocPoint;
 	}
 
 	@Column(nullable=true)
-	public int getManualDocPoint() {
+	public Integer getManualDocPoint() {
 		return manualDocPoint;
 	}
 
-	public void setManualDocPoint(int manualDocPoint) {
+	public void setManualDocPoint(Integer manualDocPoint) {
 		this.manualDocPoint = manualDocPoint;
 	}
 
@@ -182,5 +183,13 @@ public class Work implements Serializable {
 
 	public void setTestCases(Set<TestCase> testCases) {
 		this.testCases = testCases;
+	}
+
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
 	}
 }

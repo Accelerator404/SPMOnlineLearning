@@ -44,7 +44,7 @@ public class GroupAddStudentAction extends ActionSupport {
 			return INPUT;
 		}
 		else{
-			teacherService.AddStudentToGroup(groupId, studentId);
+			teacherService.addStudentToGroup(groupId, studentId);
 			return SUCCESS;
 		}
 	}

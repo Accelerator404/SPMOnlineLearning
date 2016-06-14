@@ -20,11 +20,11 @@
   							参数设置
   						<span class="caret"></span></a>
   						<ul class="dropdown-menu">
-  							<li><a href="#">服务器设置</a></li>
+  							<li><a href="../teacher/list-server">服务器设置</a></li>
     						<li><a href="#">用例编排</a></li>
     					</ul>
   					</li>
-  					<li role="presentation" class="active">
+  					<li role="presentation" class="active dropdown">
   						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
   							项目管理
   						<span class="caret"></span></a>
@@ -53,6 +53,7 @@
 						<th>分数</th>
 						<th>任务</th>
 						<th>工作时间</th>
+						<th>打分</th>
 						<th>删除</th>
 					</tr>
 				</thead>
@@ -64,6 +65,11 @@
 					<td>${student.getPoint()!"null"}</td>
 					<td>${student.getMission()!"null"}</td>
 					<td>${student.getWorkTime()!"null"}</td>
+					<td>
+						<button type="button" onclick="markStudent(${student.getId()})" class="btn btn-default" aria-label="Mark">
+  							<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+						</button>
+					</td>
 					<td>
 						<a href="../teacher/group-delete-student?studentId=${student.getId()}&groupId=${id}" aria-label="Delete">
   							<span class="glyphicon glyphicon-remove" aria-hidden="true" style="visibility:false;"></span>
@@ -81,6 +87,17 @@
 		$.ajax({
 			type: 'GET',
 			url: '../teacher/group-add-student?studentId=0&groupId='+id
+		}).done(function(data){
+			$("body").append(data);
+			$(".modal").modal();
+		});
+	}
+	
+	function markStudent(id){
+		if($(".modal").length!=0)$(".modal").remove();
+		$.ajax({
+			type: 'GET',
+			url: '../teacher/mark-group-student?studentId='+id
 		}).done(function(data){
 			$("body").append(data);
 			$(".modal").modal();

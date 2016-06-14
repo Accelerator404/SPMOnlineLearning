@@ -1,12 +1,13 @@
 <#import "../template/bootstrap.ftl" as bootstrap>
 <html style="position:relative;min-height:100%;">
-<@bootstrap.head title="教师首页">
+<@bootstrap.head title="项目批阅">
 </@bootstrap.head>
 <@bootstrap.body>
 <div class="container" style="padding-top:60px">
 	<div class="row">
 		<ol class="breadcrumb">
-  			<li class="active">Home</li>
+  			<li><a href="../teacher">Home</a></li>
+  			<li class="active">项目批阅</a></li>
 		</ol>
 	</div>
 	<div class="row">
@@ -32,25 +33,59 @@
     						<li><a href="#">成绩管理</a></li>
     					</ul>
   					</li>
-  					<li role="presentation"><a href="#">项目批阅</a></li>
+  					<li role="presentation" class="active"><a href="../teacher/list-work">项目批阅</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="col-md-9">
-			<div class="jumbotron">
-  				<h2>老师，您好！</h2>
-  				<p>以下是学生项目实践完成情况:</p>
-  				<div class="panel panel-default">
-  					<!-- List group -->
-  					<ul class="list-group">
-    					<li class="list-group-item">学生人数：${studentAmount}</li>
-    					<li class="list-group-item">小组数：${groupAmount}</li>
-    					<li class="list-group-item">提交项目数：${workAmount}</li>
-  					</ul>
-				</div>
-			</div>
+			<table class="table">
+				<caption>项目列表
+				</caption>
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>小组序号</th>
+						<th>小组名</th>
+						<th>项目文件</th>
+						<th>源代码</th>
+						<th>小组分数</th>
+						<th>分项打分</th>
+						<th>成员打分</th>
+						<th>小组打分</th>
+					</tr>
+				</thead>
+			<#list works as work>
+				<tr>
+					<td>${work.getId()}</td>
+					<td>${work.getStudentGroup().getId()}</td>
+					<td>${work.getStudentGroup().getName()}</td>
+					<td>${work.getProject()!"null"}</td>
+					<td>${work.getSourceCode()!"null"}</td>
+					<td>${work.getStudentGroup().getPoint()!"null"}</td>
+					<td>
+						
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+				<tr>
+			</#list>
+			</table>
 		</div>
 	</div>
 </div>
+<script>
+	function showModal(){
+		if($(".modal").length!=0)$(".modal").remove();
+		$.ajax({
+			type: 'GET',
+			url: '../teacher/add-group-input'
+		}).done(function(data){
+			$("body").append(data);
+			$(".modal").modal();
+		});
+	}
+</script>
 </@bootstrap.body>
 </html>

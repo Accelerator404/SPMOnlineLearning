@@ -20,11 +20,11 @@
   							参数设置
   						<span class="caret"></span></a>
   						<ul class="dropdown-menu">
-  							<li><a href="#">服务器设置</a></li>
+  							<li><a href="../teacher/list-server">服务器设置</a></li>
     						<li><a href="#">用例编排</a></li>
     					</ul>
   					</li>
-  					<li role="presentation" class="active">
+  					<li role="presentation" class="active dropdown">
   						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
   							项目管理
   						<span class="caret"></span></a>

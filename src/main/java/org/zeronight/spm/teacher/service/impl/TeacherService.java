@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zeronight.spm.dao.IBaseDao;
+import org.zeronight.spm.model.Server;
 import org.zeronight.spm.model.Student;
 import org.zeronight.spm.model.StudentGroup;
 import org.zeronight.spm.model.Work;
@@ -21,6 +22,9 @@ public class TeacherService implements ITeacherService {
 	
 	@Autowired
 	private IBaseDao<Work> workDao;
+	
+	@Autowired
+	private IBaseDao<Server> serverDao;
 
 	@Override
 	public Long getGroupAmount() {
@@ -55,7 +59,7 @@ public class TeacherService implements ITeacherService {
 	}
 
 	@Override
-	public boolean AddGroup(StudentGroup group) {
+	public boolean addGroup(StudentGroup group) {
 		groupDao.save(group);
 		return true;
 	}
@@ -66,7 +70,7 @@ public class TeacherService implements ITeacherService {
 	}
 
 	@Override
-	public boolean DeleteStudent(Student student) {
+	public boolean deleteStudent(Student student) {
 		studentDao.delete(student);
 		return true;
 	}
@@ -77,13 +81,13 @@ public class TeacherService implements ITeacherService {
 	}
 
 	@Override
-	public boolean UpdateStudent(Student student) {
+	public boolean updateStudent(Student student) {
 		studentDao.update(student);
 		return true;
 	}
 
 	@Override
-	public boolean AddStudentToGroup(int groupId, int studentId) {
+	public boolean addStudentToGroup(int groupId, int studentId) {
 		Student student = studentDao.get(Student.class, studentId);
 		StudentGroup group = groupDao.get(StudentGroup.class, groupId);
 		student.setStudentGroup(group);
@@ -94,6 +98,50 @@ public class TeacherService implements ITeacherService {
 	@Override
 	public List<Student> getAllStudents() {
 		return studentDao.find("from Student");
+	}
+
+	@Override
+	public List<Server> getAllServer() {
+		return serverDao.find("from Server");
+	}
+
+	@Override
+	public boolean addServer(Server server) {
+		serverDao.save(server);
+		return true;
+	}
+
+	@Override
+	public boolean delServer(Server server) {
+		serverDao.delete(server);
+		return true;
+	}
+
+	@Override
+	public Server gerServerById(int serverId) {
+		return serverDao.get(Server.class, serverId);
+	}
+
+	@Override
+	public boolean updateServer(Server server) {
+		serverDao.update(server);
+		return true;
+	}
+
+	@Override
+	public List<Work> getAllWorks() {
+		return workDao.find("from Work");
+	}
+
+	@Override
+	public Work getWorkById(int workId) {
+		return workDao.get(Work.class, workId);
+	}
+
+	@Override
+	public boolean updateWork(Work work) {
+		workDao.update(work);
+		return true;
 	}
 
 }

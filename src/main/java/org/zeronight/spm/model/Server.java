@@ -9,43 +9,53 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Server")
-public class Server implements Serializable{
+@Table(name = "Server")
+public class Server implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private boolean available;
-	private String link;
+	private String linkAddress;
 	private String name;
-	public Server(){
-		
+
+	public Server() {
+
 	}
+
 	@Id
-    @GeneratedValue
+	@GeneratedValue
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public boolean isAvailable() {
 		return available;
 	}
+
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
-	public String getLink() {
-		return link;
+
+	@Column(unique = true)
+	public String getLinkAddress() {
+		return linkAddress;
 	}
-	public void setLink(String link) {
-		this.link = link;
+
+	public void setLinkAddress(String linkAddress) {
+		this.linkAddress = linkAddress;
 	}
-	@Column(unique=true,length=20)
+
+	@Column(unique = true, length = 20)
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}

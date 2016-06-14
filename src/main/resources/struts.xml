@@ -7,6 +7,7 @@
 	<include file="admin.xml" />
 	<include file="user.xml" />
 	<include file="teacher.xml"/>
+	<include file="student.xml"/>
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.multipart.parser" value="spring" />
